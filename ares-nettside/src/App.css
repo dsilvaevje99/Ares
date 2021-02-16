@@ -1,0 +1,106 @@
+/* GENERAL STYLING */
+body {
+  overflow: hidden;
+}
+.pageContainer {
+  display: flex;
+  overflow: hidden;
+}
+.pageContent {
+  width: 100%;
+  padding: 130px 10%;
+  height: 100vh;
+  overflow: scroll;
+}
+
+/* BUTTONS STYLING BY TYPE */
+.btn {
+  display: block;
+  background-color: #0d5eaf;
+  color: white;
+  padding: 0.5em 1em;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+.submitBtn {
+  margin-top: 1em;
+}
+.whiteBtn {
+  background-color: white;
+  color: #0d5eaf;
+}
+.redBtn {
+  background-color: darkred;
+  color: white;
+}
+
+/* TOP BAR STYLING */
+.topBarContainer {
+  background-color: #0d5eaf;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  color: white;
+}
+.topBarContainer div {
+  display: flex;
+}
+#logo {
+  margin: 10px 50px;
+  width: 100px;
+}
+.topBarBtn {
+  margin: 10px 50px;
+  height: min-content;
+  text-decoration: none;
+}
+
+/* NAVIGATION STYLING */
+nav {
+  width: 230px;
+  background-color: lightgrey;
+  height: 100vh;
+  z-index: 5;
+}
+nav ul {
+  padding: 0;
+  list-style: none;
+  font-weight: bold;
+  position: fixed;
+  left: 0;
+  top: 115px;
+}
+nav ul li {
+  margin: 1em 2em;
+}
+nav a {
+  text-decoration: none;
+  color: #0d5eaf;
+}
+#adminNav {
+  background-color: #333333;
+}
+.adminLink {
+  color: white;
+}
+
+/* LOGIN PAGE */
+.login-wrapper {
+  width: min-content;
+  margin: clamp(150px, 10%, 15%) auto;
+}
+.input {
+  padding: 1em;
+}
+#loginErrorContainer {
+  color: darkred;
+  width: 200px;
+  margin-top: 1em;
+}

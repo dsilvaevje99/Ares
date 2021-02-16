@@ -1,0 +1,24 @@
+{
+  "pages": [
+    {
+      "title": "Forsiden",
+      "route": "/",
+      "private": false
+    },
+    {
+      "title": "Priser",
+      "route": "/Priser",
+      "private": false
+    },
+    {
+      "title": "Logg inn",
+      "route": "/LoggInn",
+      "private": false
+    },
+    {
+      "title": "Dashbord",
+      "route": "/Dashboard",
+      "private": true
+    }
+  ]
+}
