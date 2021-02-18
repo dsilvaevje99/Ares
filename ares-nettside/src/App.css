@@ -13,6 +13,30 @@ body {
   overflow: scroll;
 }
 
+/* BANNER STYLING */
+.banner {
+  width: 100%;
+  background-color: #0d5eaf;
+  color: white;
+  padding: 1em;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.banner svg {
+  margin-top: 0.2em;
+  margin-right: 1em;
+}
+.warnBanner {
+  background-color: orange;
+}
+.errBanner {
+  background-color: red;
+}
+.succBanner {
+  background-color: green;
+}
+
 /* BUTTONS STYLING BY TYPE */
 .btn {
   display: block;
@@ -120,4 +144,20 @@ nav a {
 }
 .adminGrid div {
   display: inline-block;
+}
+
+/* EDIT PAGES */
+.titleInputField {
+  border: none;
+  box-shadow: none;
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.titleInputField:focus {
+  outline: none;
 }

@@ -18,11 +18,11 @@ class Nav extends Component {
                         {
                             pages.map(function(page){
                                 return (
-                                    <Link to={page.route} className="adminLink"><li>{page.title}</li></Link>
+                                    <Link to={page.route} className="adminLink" key={page.title}><li>{page.title}</li></Link>
                                 );
                             })
                         }
-                        <a href="https://www.facebook.com/Ares-Turn-104990971341522" target="_blank" className="socialIcon"><li><FontAwesomeIcon icon={ faFacebookSquare } /></li></a>
+                        <a href="https://www.facebook.com/Ares-Turn-104990971341522" target="_blank" rel="noreferrer" className="socialIcon" key="facebookIcon"><li><FontAwesomeIcon icon={ faFacebookSquare } /></li></a>
                     </ul>
                 </nav>
             );
@@ -35,12 +35,13 @@ class Nav extends Component {
                             pages.map(function(page){
                                 if(!page.private) {
                                     return (
-                                        <Link to={page.route}><li>{page.title}</li></Link>
+                                        <Link to={page.route} key={page.title}><li>{page.title}</li></Link>
                                     );
                                 }
+                                return null;
                             })
                         }
-                        <a href="https://www.facebook.com/Ares-Turn-104990971341522" target="_blank" className="socialIcon"><li><FontAwesomeIcon icon={ faFacebookSquare } /></li></a>
+                        <a href="https://www.facebook.com/Ares-Turn-104990971341522" target="_blank" rel="noreferrer" className="socialIcon" key="facebookIcon"><li><FontAwesomeIcon icon={ faFacebookSquare } /></li></a>
                     </ul>
                 </nav>
     
