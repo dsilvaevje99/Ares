@@ -90,6 +90,11 @@ nav a {
 .adminLink {
   color: white;
 }
+.socialIcon {
+  position: fixed;
+  bottom: 0.5em;
+  font-size: 2em;
+}
 
 /* LOGIN PAGE */
 .login-wrapper {

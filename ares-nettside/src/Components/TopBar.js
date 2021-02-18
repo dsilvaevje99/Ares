@@ -11,7 +11,7 @@ const TopBar = (props) => (
         <div className="topBarContainer">
             <div>
                 <img src={logo} id="logo"  alt="logo" />
-                <h1>Ares Turn</h1>
+                <h1>Ares Turnforening</h1>
             </div>
             {
                 isLoggedIn ?
