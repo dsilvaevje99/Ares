@@ -3,22 +3,26 @@
     {
       "title": "Forsiden",
       "route": "/",
-      "private": false
+      "private": false,
+      "content": "<p>Tester forsiden!</p>"
     },
     {
       "title": "Priser",
       "route": "/Priser",
-      "private": false
-    },
-    {
-      "title": "Logg inn",
-      "route": "/LoggInn",
-      "private": false
+      "private": false,
+      "content": "<p>Tester priser!</p>"
     },
     {
       "title": "Dashbord",
       "route": "/Dashboard",
-      "private": true
+      "private": true,
+      "content": "<p>Tester dashbord!</p>"
+    },
+    {
+      "title": "Edit pages",
+      "route": "/EditPages",
+      "private": true,
+      "content": ""
     }
   ]
 }

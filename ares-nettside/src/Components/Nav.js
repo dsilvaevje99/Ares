@@ -8,7 +8,7 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 const isLoggedIn = UserStore.isLoggedIn;
 const { pages } = PagesJson;
 
-class Nav extends React.Component {
+class Nav extends Component {
     render() {
 
         if(isLoggedIn) {

@@ -4,14 +4,15 @@ import { BrowserRouter  as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import { observer } from 'mobx-react';
 import UserStore from './Stores/UserStore';
-// IMPORT PUBLIC COMPONENTS
+// IMPORT PUBLIC COMPONENTS & PAGES
 import TopBar from './Components/TopBar';
 import Navigation from './Components/Nav';
 import Forsiden from './Pages/Forsiden';
 import Priser from './Pages/Priser';
 import LoggInn from './Pages/LoggInn';
-// IMPORT PRIVATE COMPONENTS
+// IMPORT PRIVATE COMPONENTS & PAGES
 import Dashboard from './AdminPages/Dashboard';
+import EditPages from './AdminPages/EditPages';
 
 class App extends React.Component {
 
@@ -82,6 +83,7 @@ class App extends React.Component {
                             <Route path="/Priser" component={Priser}/>
                             <Route path="/LoggInn" component={LoggInn}/>
                             <PrivateRoute path="/Dashboard" component={Dashboard}/>
+                            <PrivateRoute path="/EditPages" component={EditPages}/>
                         </Switch>
                     </div>
                 </Router>
