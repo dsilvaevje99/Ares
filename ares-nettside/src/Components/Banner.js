@@ -16,6 +16,9 @@ class Banner extends Component {
               {
                   this.props.type === "succBanner" && <FontAwesomeIcon icon={faCheck} />
               }
+              {
+                  this.props.type === "infoBanner" && <FontAwesomeIcon icon={faExclamation} />
+              }
               {this.props.text}
           </div>
         );

@@ -12,6 +12,12 @@ body {
   height: 100vh;
   overflow: scroll;
 }
+.flexBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 
 /* BANNER STYLING */
 .banner {
@@ -36,6 +42,9 @@ body {
 .succBanner {
   background-color: green;
 }
+.infoBanner {
+  background-color: #0d5eaf;
+}
 
 /* BUTTONS STYLING BY TYPE */
 .btn {
@@ -47,6 +56,7 @@ body {
   border: none;
   cursor: pointer;
   font-size: 1em;
+  align-self: center;
 }
 .btn svg {
   margin-right: 0.5em;
@@ -60,6 +70,10 @@ body {
 }
 .redBtn {
   background-color: darkred;
+  color: white;
+}
+.greenBtn {
+  background-color: green;
   color: white;
 }
 
@@ -157,6 +171,7 @@ nav a {
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
+  width: 50%;
 }
 .titleInputField:focus {
   outline: none;

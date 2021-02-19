@@ -3,7 +3,7 @@ import Button from '../Components/Button';
 import InputField from "../Components/InputField";
 import UserStore from '../Stores/UserStore';
 
-class Login extends React.Component {
+class Login extends Component {
 
     constructor(props) {
         super(props);

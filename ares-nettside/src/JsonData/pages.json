@@ -19,8 +19,8 @@
       "content": "<p>Tester dashbord!</p>"
     },
     {
-      "title": "Edit pages",
-      "route": "/EditPages",
+      "title": "Page editor",
+      "route": "/PageEditor",
       "private": true,
       "content": ""
     }

@@ -6,18 +6,16 @@ class Button extends Component {
 
     render() {
         return (
-          <div>
-              <button
-                  className={'btn '+this.props.className}
-                  disabled={this.props.disabled}
-                  onClick={ () => this.props.onClick() }
-              >
-                  {
-                      this.props.className.includes("editBtn") && <FontAwesomeIcon icon={faEdit}/>
-                  }
-                  {this.props.text}
-              </button>
-          </div>
+            <button
+                className={'btn '+this.props.className}
+                disabled={this.props.disabled}
+                onClick={ () => this.props.onClick() }
+            >
+                {
+                    this.props.className.includes("editBtn") && <FontAwesomeIcon icon={faEdit}/>
+                }
+                {this.props.text}
+            </button>
         );
     }
 
