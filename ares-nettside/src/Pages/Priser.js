@@ -20,7 +20,7 @@ const Priser = () => {
     return (
         <div className="pageContent">
             <h1>{pageTitle}</h1>
-            {pageContent}
+            <div dangerouslySetInnerHTML={{ __html: pageContent }} />
         </div>
     );
 };
