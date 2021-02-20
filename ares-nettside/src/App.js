@@ -12,9 +12,8 @@ import Priser from './Pages/Priser';
 import LoggInn from './Pages/LoggInn';
 // IMPORT PRIVATE COMPONENTS & PAGES
 import Dashboard from './AdminPages/Dashboard';
-import PageEditor from './Components/PageEditor';
 
-class App extends React.Component {
+class App extends Component {
 
     async componentDidMount() {
         try {
@@ -83,7 +82,6 @@ class App extends React.Component {
                             <Route path="/Priser" component={Priser}/>
                             <Route path="/LoggInn" component={LoggInn}/>
                             <PrivateRoute path="/Dashboard" component={Dashboard}/>
-                            <PrivateRoute path="/PageEditor" component={PageEditor}/>
                         </Switch>
                     </div>
                 </Router>

@@ -17,12 +17,6 @@
       "route": "/Dashboard",
       "private": true,
       "content": "<p>Tester dashbord!</p>"
-    },
-    {
-      "title": "Page editor",
-      "route": "/PageEditor",
-      "private": true,
-      "content": ""
     }
   ]
 }

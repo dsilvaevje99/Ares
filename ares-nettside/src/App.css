@@ -118,18 +118,25 @@ nav ul {
   left: 0;
   top: 115px;
 }
-nav ul li {
+nav ul li,
+nav .addBtn {
   margin: 1em 2em;
 }
 nav a {
   text-decoration: none;
   color: #0d5eaf;
 }
+.normalLink:hover {
+  color: #333333;
+}
 #adminNav {
   background-color: #333333;
 }
 .adminLink {
   color: white;
+}
+.adminLink:hover {
+  color: lightskyblue;
 }
 .socialIcon {
   position: fixed;
