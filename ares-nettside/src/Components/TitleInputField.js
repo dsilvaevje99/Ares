@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactTooltip from 'react-tooltip';
 
 function saveTitle(e) {
     // !Add save logic later
@@ -15,8 +16,12 @@ class TitleInputField extends Component {
                 onBlur={saveTitle}
                 contentEditable
                 suppressContentEditableWarning={true}
+                data-tip="Trykk for å redigere side-tittelen"
+                data-effect="solid"
+                data-offset="{'left': 100}"
             >
                 {this.props.title}
+                <ReactTooltip />
             </div>
         );
     }

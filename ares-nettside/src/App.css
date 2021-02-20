@@ -179,7 +179,16 @@ nav a {
   margin-right: 0;
   font-weight: bold;
   width: 50%;
+  position: relative;
+  cursor: pointer;
 }
 .titleInputField:focus {
   outline: none;
+}
+#titleInputEditIcon {
+  position: absolute;
+  top: 1em;
+  right: 0;
+  font-size: 0.5em;
+  color: grey;
 }
