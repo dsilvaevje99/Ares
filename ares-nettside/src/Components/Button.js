@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class Button extends Component {
 
@@ -17,6 +18,9 @@ class Button extends Component {
                 }
                 {
                     this.props.className.includes("addBtn") && <FontAwesomeIcon icon={faPlus}/>
+                }
+                {
+                    this.props.className.includes("delBtn") && <FontAwesomeIcon icon={faTrash}/>
                 }
                 {this.props.text}
             </button>

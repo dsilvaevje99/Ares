@@ -15,6 +15,14 @@ import Dashboard from './AdminPages/Dashboard';
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false
+        };
+        this.doLogOut = this.doLogOut.bind(this);
+    }
+
     async componentDidMount() {
         try {
             let res = await fetch('/isLoggedIn', {
@@ -28,17 +36,22 @@ class App extends Component {
             let result = await res.json();
 
             if(result && result.success) {
-                UserStore.loading = false;
+                /*UserStore.loading = false;
                 UserStore.isLoggedIn = true;
-                UserStore.userName = result.username;
+                UserStore.userName = result.username;*/
+                this.setState({isLoggedIn: true});
             } else {
+                /*
                 UserStore.loading = false;
-                UserStore.isLoggedIn = false;
+                UserStore.isLoggedIn = false;*/
+                this.setState({isLoggedIn: false});
             }
 
         } catch(e) {
-            UserStore.loading = false;
-            UserStore.isLoggedIn = false;
+            /*UserStore.loading = false;
+            UserStore.isLoggedIn = false;*/
+            console.log(e);
+            this.setState({isLoggedIn: false});
         }
     }
 
@@ -55,8 +68,11 @@ class App extends Component {
             let result = await res.json();
 
             if(result && result.success) {
-                UserStore.isLoggedIn = false;
-                UserStore.userName = '';
+                /*UserStore.isLoggedIn = false;
+                UserStore.userName = '';*/
+                this.setState({isLoggedIn: false});
+            } else if(result && result.success === false) {
+                console.log("doLogOut() failed to log out. You may already be logged out.");
             }
 
         } catch(e) {
@@ -75,8 +91,8 @@ class App extends Component {
             return (
                 <Router>
                     <div className="pageContainer">
-                        <TopBar doLogOut={this.doLogOut()}/>
-                        <Navigation/>
+                        <TopBar isLoggedIn={this.state.isLoggedIn} doLogOut={this.doLogOut}/>
+                        <Navigation isLoggedIn={this.state.isLoggedIn}/>
                         <Switch>
                             <Route path="/" exact component={Forsiden}/>
                             <Route path="/Priser" component={Priser}/>

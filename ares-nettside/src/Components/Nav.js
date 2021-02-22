@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import UserStore from '../Stores/UserStore';
 import PagesJson from '../JsonData/pages.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+/*import UserStore from '../Stores/UserStore';
 
-const isLoggedIn = UserStore.isLoggedIn;
+const isLoggedIn = UserStore.isLoggedIn;*/
 const { pages } = PagesJson;
 
 class Nav extends Component {
     render() {
 
-        if(isLoggedIn) {
+        if(this.props.isLoggedIn) {
             return (
                 <nav id="adminNav">
                     <ul>
@@ -34,7 +34,6 @@ class Nav extends Component {
             );
         } else {
             return (
-
                 <nav>
                     <ul>
                         {
@@ -50,7 +49,6 @@ class Nav extends Component {
                         <a href="https://www.facebook.com/Ares-Turn-104990971341522" target="_blank" rel="noreferrer" className="socialIcon" key="facebookIcon"><li><FontAwesomeIcon icon={ faFacebookSquare } /></li></a>
                     </ul>
                 </nav>
-    
             );
         }
 

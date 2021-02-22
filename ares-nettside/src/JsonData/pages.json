@@ -4,18 +4,21 @@
       "title": "Forsiden",
       "route": "/",
       "private": false,
+      "lastUpdate": "10.02.2021",
       "content": "<p>Tester forsiden!</p>"
     },
     {
       "title": "Priser",
       "route": "/Priser",
       "private": false,
+      "lastUpdate": "10.02.2021",
       "content": "<p>Tester priser!</p>"
     },
     {
       "title": "Dashbord",
       "route": "/Dashboard",
       "private": true,
+      "lastUpdate": "",
       "content": "<p>Tester dashbord!</p>"
     }
   ]
