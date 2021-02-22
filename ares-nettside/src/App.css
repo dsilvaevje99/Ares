@@ -17,6 +17,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-content: center;
+  flex-wrap: wrap;
+}
+.flexEnd {
+  justify-content: flex-end;
 }
 
 /* BANNER STYLING */
@@ -57,6 +61,7 @@ body {
   cursor: pointer;
   font-size: 1em;
   align-self: center;
+  text-decoration: none;
 }
 .btn svg {
   margin-right: 0.5em;
@@ -75,6 +80,17 @@ body {
 .greenBtn {
   background-color: green;
   color: white;
+}
+
+/* TABLE STYLING */
+th {
+  background-color: #333333;
+  color: white;
+  padding: 0.3em;
+  width: 33%;
+}
+td {
+  border-bottom: 1px solid grey;
 }
 
 /* TOP BAR STYLING */
@@ -159,12 +175,23 @@ nav a {
 }
 
 /* ADMIN PAGE */
-.adminGrid {
+#adminGrid {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.adminGrid div {
-  display: inline-block;
+#adminGrid table {
+  width: 100%;
+  margin-bottom: 3em;
+}
+#adminGrid table td {
+  padding-left: 10px;
+}
+#adminGrid table .btn {
+  margin-right: 10px;
+}
+#adminGrid h3 {
+  width: 100%;
 }
 
 /* EDIT PAGES */
@@ -191,4 +218,16 @@ nav a {
   right: 0;
   font-size: 0.5em;
   color: grey;
+}
+
+/* CARD STYLING */
+.cardContainer {
+  background: lightgrey;
+  padding: 1em;
+  margin: 1em;
+  width: 18vw;
+  height: 18vw;
+  max-width: 300px;
+  max-height: 300px;
+  border-bottom: 5px solid #0d5eaf;
 }

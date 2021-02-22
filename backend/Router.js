@@ -64,7 +64,7 @@ class Router {
             if(req.session.userID) {
                 req.session.destroy();
                 res.json({
-                    succes: true
+                    success: true
                 })
                 return true;
             } else {

@@ -7,8 +7,10 @@
 logs
 **/*.backup.*
 **/*.back.*
+GenPassword.js
 
 node_modules
+build
 bower_components
 
 *.sublime*

@@ -61,6 +61,8 @@ class Login extends Component {
             if(result && result.success) {
                 UserStore.isLoggedIn = true;
                 UserStore.userName = result.username;
+                console.log("Login successfull");
+                window.location.href = '/Dashboard';
             }
             else if(result && result.success === false) {
                 this.resetForm();
