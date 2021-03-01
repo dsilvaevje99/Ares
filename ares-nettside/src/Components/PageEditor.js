@@ -12,7 +12,11 @@ class PageEditor extends Component {
                 <Banner type="warnBanner" text="Du er nå i redigeringsmodus. Husk å lagre endringer du ønsker å beholde." />
                 <div className="flexBox">
                     <TitleInputField title={this.props.title} />
-                    <Button className="greenBtn" text="Lagre & publiser" />
+                    <Button
+                        className="greenBtn"
+                        text="Lagre & publiser"
+                        onClick={this.props.toggleEdit}
+                    />
                 </div>
                 <TextEditor content={this.props.content} />
             </div>

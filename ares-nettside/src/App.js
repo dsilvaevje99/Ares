@@ -1,17 +1,18 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter  as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import { observer } from 'mobx-react';
 import UserStore from './Stores/UserStore';
-// IMPORT PUBLIC COMPONENTS & PAGES
+import PagesJson from './JsonData/pages.json';
+// IMPORT PUBLIC COMPONENTS
 import TopBar from './Components/TopBar';
 import Navigation from './Components/Nav';
-import Forsiden from './Pages/Forsiden';
-import Priser from './Pages/Priser';
-import LoggInn from './Pages/LoggInn';
+import PageDisplay from './Components/PageDisplay';
 // IMPORT PRIVATE COMPONENTS & PAGES
 import Dashboard from './AdminPages/Dashboard';
+
+const { pages } = PagesJson;
 
 class App extends Component {
 
@@ -44,14 +45,14 @@ class App extends Component {
                 /*
                 UserStore.loading = false;
                 UserStore.isLoggedIn = false;*/
-                this.setState({isLoggedIn: false});
+                this.setState({isLoggedIn: true}); //! SET TO FALSE LATER TO TURN OFF AUTO-LOGIN
             }
 
         } catch(e) {
             /*UserStore.loading = false;
             UserStore.isLoggedIn = false;*/
             console.log(e);
-            this.setState({isLoggedIn: false});
+            this.setState({isLoggedIn: true}); //! SET TO FALSE LATER TO TURN OFF AUTO-LOGIN
         }
     }
 
@@ -94,9 +95,23 @@ class App extends Component {
                         <TopBar isLoggedIn={this.state.isLoggedIn} doLogOut={this.doLogOut}/>
                         <Navigation isLoggedIn={this.state.isLoggedIn}/>
                         <Switch>
-                            <Route path="/" exact component={Forsiden}/>
-                            <Route path="/Priser" component={Priser}/>
-                            <Route path="/LoggInn" component={LoggInn}/>
+                            {
+                                pages.map(function(page, index){
+                                    if(!page.private) {
+                                        return (
+                                            <Route
+                                                key={index}
+                                                path={page.route}
+                                                exact
+                                                render={(props) => (
+                                                    <PageDisplay {...props} isLoggedIn={this.state.isLoggedIn} title={page.title} lastUpdated={page.lastUpdated} content={page.content} />
+                                                )}
+                                            />
+                                        );
+                                    }
+                                    return null;
+                                }, this)
+                            }
                             <PrivateRoute path="/Dashboard" component={Dashboard}/>
                         </Switch>
                     </div>
