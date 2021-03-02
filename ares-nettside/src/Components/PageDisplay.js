@@ -12,6 +12,15 @@ class PageDisplay extends Component {
         this.toggleEdit = this.toggleEdit.bind(this);
     }
 
+    componentDidMount() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const editPage = urlParams.get("editPage");
+        if(editPage) {
+            this.toggleEdit();
+        }
+    }
+
     toggleEdit() {
         if(this.state.toggleEdit) {
             this.setState({toggleEdit: false});

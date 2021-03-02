@@ -22,6 +22,9 @@ body {
 .flexEnd {
   justify-content: flex-end;
 }
+.greyText {
+  color: grey;
+}
 
 /* BANNER STYLING */
 .banner {
