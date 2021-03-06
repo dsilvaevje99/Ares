@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
 import Button from '../Components/Button';
 import InputField from "../Components/InputField";
-import UserStore from '../Stores/UserStore';
 
 class Login extends Component {
 
@@ -59,8 +58,7 @@ class Login extends Component {
 
             let result = await res.json();
             if(result && result.success) {
-                UserStore.isLoggedIn = true;
-                UserStore.userName = result.username;
+                //set isLoggedIn to true
                 console.log("Login successfull");
                 window.location.href = '/Dashboard';
             }

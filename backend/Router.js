@@ -6,6 +6,7 @@ class Router {
         this.login(app, db);
         this.logout(app, db);
         this.isLoggedIn(app, db);
+        this.getPageList(app, db);
     }
 
     login(app, db) {
@@ -98,6 +99,23 @@ class Router {
                     success: false
                 })
             }
+        });
+    }
+
+    getPageList(app, db) {
+        app.post('/pageList', (req, res) => {
+                db.query('SELECT * FROM pages', (err, data, fields) => {
+                   if(data && data.length >= 1) {
+                       res.json({
+                            pages: data
+                       })
+                       return true;
+                   } else {
+                       res.json({
+                           success: false
+                       })
+                   }
+                });
         });
     }
 

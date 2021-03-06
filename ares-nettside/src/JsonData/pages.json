@@ -1,25 +1,20 @@
 {
   "pages": [
     {
+      "id": 0,
       "title": "Forsiden",
       "route": "/",
-      "private": false,
+      "private": 0,
       "lastUpdated": "10.02.2021",
       "content": "<p>Tester forsiden!</p>"
     },
     {
+      "id": 1,
       "title": "Priser",
       "route": "/Priser",
-      "private": false,
+      "private": 0,
       "lastUpdated": "10.02.2021",
       "content": "<p>Tester priser!</p>"
-    },
-    {
-      "title": "Dashbord",
-      "route": "/Dashboard",
-      "private": true,
-      "lastUpdated": "",
-      "content": ""
     }
   ]
 }

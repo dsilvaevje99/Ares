@@ -3,12 +3,12 @@ import './App.css';
 import { BrowserRouter  as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import { observer } from 'mobx-react';
-import UserStore from './Stores/UserStore';
 import PagesJson from './JsonData/pages.json';
 // IMPORT PUBLIC COMPONENTS
 import TopBar from './Components/TopBar';
 import Navigation from './Components/Nav';
 import PageDisplay from './Components/PageDisplay';
+import Login from './Pages/LoggInn';
 // IMPORT PRIVATE COMPONENTS & PAGES
 import Dashboard from './AdminPages/Dashboard';
 
@@ -19,12 +19,15 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
+            pageList: pages
         };
         this.doLogOut = this.doLogOut.bind(this);
+        console.log("ORIGINAL STATE: \n"+this.state.pageList);
     }
 
     async componentDidMount() {
+        // CHeck if user is logged in
         try {
             let res = await fetch('/isLoggedIn', {
                method: 'post',
@@ -37,22 +40,35 @@ class App extends Component {
             let result = await res.json();
 
             if(result && result.success) {
-                /*UserStore.loading = false;
-                UserStore.isLoggedIn = true;
-                UserStore.userName = result.username;*/
                 this.setState({isLoggedIn: true});
             } else {
-                /*
-                UserStore.loading = false;
-                UserStore.isLoggedIn = false;*/
                 this.setState({isLoggedIn: true}); //! SET TO FALSE LATER TO TURN OFF AUTO-LOGIN
             }
 
         } catch(e) {
-            /*UserStore.loading = false;
-            UserStore.isLoggedIn = false;*/
             console.log(e);
             this.setState({isLoggedIn: true}); //! SET TO FALSE LATER TO TURN OFF AUTO-LOGIN
+        }
+
+        // Get list of pages and their content
+        try {
+            let dbPages = await fetch('/pageList', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            let dbPageList = await dbPages.json();
+
+            if(!dbPageList.success) {
+                console.log("FAILED page list: "+dbPageList);
+            } else {
+                this.setState({pageList: dbPageList.pages});
+            }
+        } catch(e) {
+            console.log(e);
         }
     }
 
@@ -69,8 +85,6 @@ class App extends Component {
             let result = await res.json();
 
             if(result && result.success) {
-                /*UserStore.isLoggedIn = false;
-                UserStore.userName = '';*/
                 this.setState({isLoggedIn: false});
             } else if(result && result.success === false) {
                 console.log("doLogOut() failed to log out. You may already be logged out.");
@@ -82,37 +96,37 @@ class App extends Component {
     }
 
   render() {
-
-        if(UserStore.loading) {
-            return (
-                <p>Laster inn...</p>
-            );
-        }
-
             return (
                 <Router>
                     <div className="pageContainer">
                         <TopBar isLoggedIn={this.state.isLoggedIn} doLogOut={this.doLogOut}/>
-                        <Navigation isLoggedIn={this.state.isLoggedIn}/>
+                        <Navigation isLoggedIn={this.state.isLoggedIn} pageList={this.state.pageList} />
                         <Switch>
                             {
-                                pages.map(function(page, index){
-                                    if(!page.private) {
+                                this.state.pageList.map(function(page, index){
+                                    //if(page.private === 0) {
                                         return (
                                             <Route
                                                 key={index}
                                                 path={page.route}
                                                 exact
                                                 render={(props) => (
-                                                    <PageDisplay {...props} isLoggedIn={this.state.isLoggedIn} title={page.title} lastUpdated={page.lastUpdated} content={page.content} />
+                                                    <PageDisplay
+                                                        {...props}
+                                                        isLoggedIn={this.state.isLoggedIn}
+                                                        title={page.title}
+                                                        lastUpdated={page.lastUpdated}
+                                                        content={page.content}
+                                                    />
                                                 )}
                                             />
                                         );
-                                    }
-                                    return null;
+                                    //}
+                                    //return null;
                                 }, this)
                             }
-                            <PrivateRoute path="/Dashboard" component={Dashboard}/>
+                            <Route path="/LoggInn" component={Login} exact />
+                            <PrivateRoute path="/Dashboard" component={Dashboard} />
                         </Switch>
                     </div>
                 </Router>

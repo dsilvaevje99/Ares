@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import PagesJson from '../JsonData/pages.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
-/*import UserStore from '../Stores/UserStore';
-
-const isLoggedIn = UserStore.isLoggedIn;*/
-const { pages } = PagesJson;
 
 class Nav extends Component {
     render() {
@@ -19,12 +14,13 @@ class Nav extends Component {
                         <Link to="Dashboard" className="adminLink"><li>Dashbord</li></Link>
                         <br/>
                         {
-                            pages.map(function(page){
-                                if(page.title != "Dashbord") {
+                            this.props.pageList.map(function(page){
+                                if(page.title !== "Dashbord") {
                                     return (
                                         <Link to={page.route} className="adminLink" key={page.title}><li>{page.title}</li></Link>
                                     );
                                 }
+                                return null;
                             })
                         }
                         <Button className="whiteBtn addBtn" text="Ny side" />
@@ -37,7 +33,7 @@ class Nav extends Component {
                 <nav>
                     <ul>
                         {
-                            pages.map(function(page){
+                            this.props.pageList.map(function(page){
                                 if(!page.private) {
                                     return (
                                         <Link to={page.route} key={page.title} className="normalLink"><li>{page.title}</li></Link>
